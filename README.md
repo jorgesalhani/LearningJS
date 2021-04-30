@@ -1,2 +1,2 @@
 # LearningJS
-Learning JavaScript from [Learn JavaScript](https://learnjavascript.online/)
+Learning JavaScript from [JS tutorial](https://javascript.info/)
