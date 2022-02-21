@@ -1,4 +1,3 @@
 # LearningJS
 
-- CourseJS: Learning JavaScript from [Curso de JS](https://www.youtube.com/watch?v=uFMUdv1W1p4&list=PLwXQLZ3FdTVF9Y0RbsuN54XYP7D0dZIlR)
-- TutorialJS: More studies topics on JavaScript from [JS tutorial](https://javascript.info/)
+- TutorialJS: More studies topics on JavaScript from [The Coding Train](https://www.youtube.com/watch?v=HerCR8bw_GE&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA)
