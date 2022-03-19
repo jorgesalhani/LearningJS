@@ -37,4 +37,5 @@ function draw() {
   line(origin.x, origin.y, bob.x, bob.y);
   fill(150);
   circle(bob.x, bob.y, 64);
+  // New Life
 }
