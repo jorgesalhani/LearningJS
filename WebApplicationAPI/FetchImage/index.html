@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" />
+        <title>WebApp 1</title>
+    </head>
+
+    <body>
+        <img src="" id="kali" width="1080"/>
+        <script>
+
+          catchKali()
+          .then(response => {
+            console.log('yay');
+          })
+          .catch(error => {
+            console.log('error!!');
+            console.error(error);
+          })
+
+          async function catchKali() {
+            const response = await fetch('kali_city_album.jpg');
+            const blob = await response.blob();
+            document.getElementById('kali').scr = URL.createObjectURL(blob);
+          }
+
+          console.log('Fetch Kali City Album');
+        </script>
+    </body>
+</html>
