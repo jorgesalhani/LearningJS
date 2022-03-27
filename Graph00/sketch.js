@@ -28,5 +28,5 @@ function draw() {
 
   angle += PI/100;
 
-  point(50+((angle * 20))%(PI*100), y+90);
+  point(50+((angle * 20))%((PI)*100), y+90);
 }
