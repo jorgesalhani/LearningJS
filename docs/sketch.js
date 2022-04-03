@@ -1,13 +1,29 @@
-document.getElementById('button').click();
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
 
-const body = document.body;
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
 
-body.addEventListener('click', e => {
-  console.log('clicked body');
-});
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
 
-console.log('Using click()');
-body.click();
-
-console.log('Using dispatchEvent');
-body.dispatchEvent(new Event('click'));
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
