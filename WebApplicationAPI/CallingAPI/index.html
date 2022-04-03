@@ -46,6 +46,7 @@
 
 				L.marker([latitude, longitude]).addTo(myMap);
 				marker.setLatLng([latitude, longitude]);
+				myMap.setView([latitude, longitude], 2)
 
 				document.getElementById('lat').textContent = latitude;
 				document.getElementById('lon').textContent = longitude;
@@ -53,6 +54,8 @@
 			}
 
 			getISS();
+
+			setInterval(getISS, 1000)
 		</script>
 	</body>
 </html>
