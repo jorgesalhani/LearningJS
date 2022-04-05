@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+    </head>
+  <body>
+    <h1>Constante de Euler e</h1>
+    <h2>$$ e = \lim_{n \to \infty} \Bigg[1 + \frac{1}{n}\Bigg]^n $$</h2>
+    <br>
+    <div>
+        <canvas height="100px" id="myChart"></canvas>        
+    </div>
+    <br>
+    <span
+      data-text="Simular para n = 1000"
+      class="tooltip"
+    >
+      <button 
+        id="insertData"
+        class="buttonCustom"  
+      >Adicionar dado</button>
+    </span>
+    <br>
+    <span
+      data-text="Inserir próximo dado n+1"
+      class="tooltip"
+    >
+    <button 
+      id="initSimulation"
+      class="buttonCustom"  
+    >Simulação</button>
+    <script src="sketch.js"></script>
+  </body>
+</html>
