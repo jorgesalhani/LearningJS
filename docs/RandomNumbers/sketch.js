@@ -9,6 +9,7 @@ let data = {
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
     data: data_array,
+    tension: 0.3,
   }]
 };
 
@@ -34,6 +35,7 @@ function dataUpdate(data, data_array, data_labels) {
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
       data: data_array,
+      tension: 0.3,
     }]
   };
   
