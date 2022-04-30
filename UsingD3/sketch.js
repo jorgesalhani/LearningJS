@@ -109,3 +109,34 @@ chart
   .append('g')
   .attr('transform', `translate(0,0)`)
   .call(d3.axisLeft(yScale));
+
+function updateGraph(data) {
+  let svg = d3
+    .select('#chart')
+    .transition();
+
+  svg
+    .select('.line')
+    .duration(2500)
+    .attr('d', line(data));
+
+  svg
+    .select('.x.axis')
+    .duration(2500)
+    .call(d3.axisBottom(xScale).ticks(data.length))
+  
+}
+
+function listen_on_click() {
+  data.push(
+    {
+      year: 2006,
+      popularity: 420
+    }
+  )
+  updateGraph(data)
+}
+
+const addDataButton = document.getElementById('addDataButton');
+
+addDataButton.addEventListener('click', listen_on_click.bind(data));
