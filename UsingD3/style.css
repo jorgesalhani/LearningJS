@@ -6,3 +6,8 @@ html, body {
 canvas {
   display: block;
 }
+
+#chart {
+  text-align: center;
+  margin: 40px;
+}
