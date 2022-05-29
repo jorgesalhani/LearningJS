@@ -48,3 +48,43 @@ let boundary = /\bcat\b/;
 let animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
 // console.log(animalCount.test('15 pigs')); // TRUE
 // console.log(animalCount.test('15 pigchickens')); // FALSE
+
+// console.log('papa'.replace('p', 'm')); // mapa
+// console.log('papa'.replace(/p/g, 'm')); // mama
+
+// console.log('Borobudur'.replace(/[ou]/, 'a'));
+
+// console.log('Liskov, Barbara\nMcCarthy, John\ndaDoze, Jorgin\n'
+//   .replace(/(\w+), (\w+)/g, '$2 $1'));
+
+let s = 'the cia and fbi';
+// console.log(s.replace(
+//   /\b(fbi|cia)\b/g,
+//   str => str.toUpperCase()
+//   ))
+
+// function stripComments(code) {
+//   return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
+// }
+// console.log(stripComments("1 + /* 2 */3"));
+// // → 1 + 3
+// console.log(stripComments("x = 10;// ten!"));
+// // → x = 10;
+// console.log(stripComments("1 /* a */+/* b */ 1"));
+// // → 1  1  GREEDY
+
+function stripComments(code) {
+  return code.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
+}
+
+let charName = 'harry';
+let text = 'Harry is a suspicious character.';
+let regexp = new RegExp('\\b(' + charName + ')\\b', 'gi'); // gi -> global, case insensitive
+// console.log(text.replace(regexp, '_$1_'));
+
+charName = 'dea+hl[]rd';
+text = 'This dea+hl[]rd guy is super annoying';
+let escaped = charName.replace(/[\\[.+*?(){|^$]/g, '\\$&');
+regexp = new RegExp('\\b' + escaped + '\\b', 'gi');
+// console.log(text.replace(regexp, '_$&_'));
+
