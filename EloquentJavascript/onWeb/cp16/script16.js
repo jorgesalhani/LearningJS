@@ -135,5 +135,8 @@ const levelChars = {
   'v': Lava
 }
 
+import DOMDisplay from './DOMDisplay';
+
 let simpleLevel = new Level(simpleLevelPlan);
-console.log(`${simpleLevel.width} by ${simpleLevel.height}`);
+let display = new DOMDisplay(document.body, simpleLevel);
+display.syncState(State.start(simpleLevel));
