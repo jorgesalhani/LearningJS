@@ -1,7 +1,10 @@
 let data = [], majorRadius = 100;
 
 function updateData() {
-	data = [Math.random() * 2 * Math.PI, Math.random() * 2 * Math.PI, Math.random() * 2 * Math.PI];
+	data = [
+		Math.random() * 2 * Math.PI, 
+		Math.random() * 2 * Math.PI, 
+		Math.random() * 2 * Math.PI];
 }
 
 function getCurrentAngle(el) {
