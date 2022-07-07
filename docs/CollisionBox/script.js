@@ -65,6 +65,10 @@ function verticalWallCollision(currentX, currentY) {
     let incidentAngle = Math.atan2(nextPositionX, nextPositionY);
     vy *= -1;
     nextPositionY = currentY + (vy * dt)* Math.sin(incidentAngle);
+    let t = d3.timer((elapsed) => {
+      console.log('AA')
+      if (elapsed > 200) t.stop();
+    }, 150);
   }
   return nextPositionY;
 }
@@ -84,10 +88,10 @@ function moveCircle() {
 }
 
 let interval = d3.interval(function(elapsed) {
-  // if (elapsed > 10000) {
-  //   interval.stop();
-  //   return;
-  // }
+  if (elapsed > 3000) {
+    interval.stop();
+    return;
+  }
   updatePositions();
   moveCircle();
 }, 1);
