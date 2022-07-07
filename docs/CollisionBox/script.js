@@ -88,10 +88,10 @@ function moveCircle() {
 }
 
 let interval = d3.interval(function(elapsed) {
-  if (elapsed > 3000) {
-    interval.stop();
-    return;
-  }
+  // if (elapsed > 3000) {
+  //   interval.stop();
+  //   return;
+  // }
   updatePositions();
   moveCircle();
 }, 1);
