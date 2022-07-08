@@ -1,25 +1,30 @@
-const borders = {
-  top: 30,
-  bottom: 30,
-  left: 30,
-  right: 30
+function pixelsToFloat(pixelsMetric) {
+  let pixelsValue = pixelsMetric.match(/\d+/g);
+  return parseFloat(pixelsValue);
 }
 
-const svgDimensions = {
-  width: 300,
-  height: 250
-}
+let width = pixelsToFloat(d3.select('svg').style('width'));
+let heigth = pixelsToFloat(d3.select('svg').style('height'));
 
-const svg = d3
-  .select('svg')
-  .attr('width', svgDimensions.width)
-  .attr('height', svgDimensions.height);
+
+let svg = d3.select('g');
+
+svg
+  .attr('transform', `translate(${width / 4}, 300)`)
 
 function drawCircle(cx, cy, r) {
-  svg
+  let mapX = d3.scaleLinear()
+  .domain([-2.1820, 2.6558])
+  .range([0, width / 2]);
+
+  let mapY = d3.scaleLinear()
+    .domain([0, 9.9983])
+    .range([0, heigth / 2]);
+
+  d3.select('g')
     .append('circle')
-      .attr('cx', cx)
-      .attr('cy', cy)
+      .attr('cx', mapX(cx))
+      .attr('cy', mapY(cy))
       .attr('r', r)
       .attr('fill', 'green');
 }
@@ -27,7 +32,7 @@ function drawCircle(cx, cy, r) {
 function nextPoint(x, y) {
   let nextX, nextY = 0;
 
-  let r = Math.random(1);
+  let r = Math.random();
 
   if (r < 0.01) {
     nextX = 0;
@@ -49,4 +54,13 @@ function nextPoint(x, y) {
   }
 }
 
-drawCircle(svgDimensions.width / 2, svgDimensions.height / 2, 5);
+let newPositions = nextPoint(0, 0, 1);
+
+let interval = d3.interval(function(elapse) {
+  // if (elapse >= 10000) {
+  //   interval.stop();
+  //   return;
+  // }
+  drawCircle(newPositions.x, newPositions.y, 1);
+  newPositions = nextPoint(newPositions.x, newPositions.y);
+})
