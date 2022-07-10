@@ -47,44 +47,32 @@ console.log(heigth);
 let dt = 1;
 let vx = 2, vy = 2;
 
-function horizontalWallCollision(currentX, currentY) {
-  let nextPositionX = currentX + vx * dt;
-  let nextPositionY = currentY + vy * dt;
-  if (nextPositionX <= r || nextPositionX >= (width / 2) - r) {
-    let incidentAngle = Math.atan2(nextPositionX, nextPositionY);
-    vx *= -1;
-    nextPositionX =  currentX + (vx * dt) * Math.cos(incidentAngle);
-  }
-  return nextPositionX;
-}
-
-function verticalWallCollision(currentX, currentY) {
+function wallCollision(currentX, currentY) {
   let nextPositionX = currentX + vx * dt;
   let nextPositionY = currentY + vy * dt;
   if (nextPositionY <= r || nextPositionY >= (heigth / 2) - r) {
     let incidentAngle = Math.atan2(nextPositionX, nextPositionY);
     vy *= -1;
-    nextPositionY = currentY + (vy * dt)* Math.sin(incidentAngle);
-    let t = d3.timer((elapsed) => {
-      console.log('AA')
-      if (elapsed > 200) t.stop();
-    }, 150);
+    nextPositionY = currentY + (vy * dt) * Math.sin(incidentAngle);
   }
-  return nextPositionY;
+  if (nextPositionX <= r || nextPositionX >= (width / 2) - r) {
+    let incidentAngle = Math.atan2(nextPositionX, nextPositionY);
+    vx *= -1;
+    nextPositionX =  currentX + (vx * dt) * Math.cos(incidentAngle);
+  }
+  return {
+    x: nextPositionX, 
+    y: nextPositionY
+  }
 }
 
 function moveCircle() {
+  let nextPositions = wallCollision(circlePositions[0].x, circlePositions[0].y);
   d3.selectAll('circle')
     .data(circlePositions)
     .join('circle')
-    .attr('cx', function(d, i) {
-      nextPositionX = horizontalWallCollision(d.x, d.y);
-      return nextPositionX;
-    })
-    .attr('cy', function(d, i) {
-      nextPositionY = verticalWallCollision(d.x, d.y);
-      return nextPositionY;
-    });
+    .attr('cx', nextPositions.x)
+    .attr('cy', nextPositions.y);
 }
 
 let interval = d3.interval(function(elapsed) {
