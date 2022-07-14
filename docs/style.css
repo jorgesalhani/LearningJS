@@ -1,7 +1,7 @@
 #header-banner {
   height: 300px;
   background-color: #DEA4DB;
-  margin: 0;
+  padding: 2em;
 }
 
 #header {
@@ -10,4 +10,31 @@
 
 h1 {
   text-align: center;
+}
+
+#header-right {
+  text-align: right;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  ;
+}
+
+#content-card {
+  margin: 2em;
+  text-align: center;
+}
+
+li {
+  padding: 2em;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+li:hover {
+  box-shadow: rgba(50, 50, 50, 0.5) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
