@@ -1,15 +1,37 @@
+* {
+  background-color: #fdfdf1d7;
+  margin: 0px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;   /* Add 'Roboto' here */
+  line-height: 1.8em;
+  color: #6d747a9e;
+  font-weight: 200;
+}
+
 #header-banner {
   height: 300px;
-  background-color: #DEA4DB;
-  padding: 2em;
+  border-bottom: 1px solid #88909858;
 }
 
 #header {
+  height: 50px;
   text-align: center;
+  border-bottom: 1px solid #889098;
+}
+
+#banner {
+  height: 248px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
 }
 
 h1 {
   text-align: center;
+  font-size: 60px;
 }
 
 #header-right {
@@ -21,7 +43,6 @@ ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  ;
 }
 
 #content-card {
