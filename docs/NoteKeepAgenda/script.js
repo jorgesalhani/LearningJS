@@ -23,6 +23,19 @@ function updateTable() {
   cell.innerHTML = lastEntry['description'];
 }
 
+function setBuiltInValidation() {
+  let noteInput = document.querySelector('#note-form');
+  for (let i = 0; i < noteInput.length-1; i++) {
+    noteInput[i].required = true;
+  };
+
+  noteInput.querySelector('#deadline').pattern = '[0-9]{2}\/[0-9]{2}\/[0-9]{4}';
+  noteInput.querySelector('#todo').pattern = '[A-Za-z0-9_ ]{0,20}$';
+  noteInput.querySelector('#description').maxLength = 100;
+}
+
+setBuiltInValidation();
+
 form.addEventListener('submit', function(event) {
   event.preventDefault();
   sendData();
