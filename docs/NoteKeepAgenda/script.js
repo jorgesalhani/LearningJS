@@ -10,24 +10,17 @@ function sendData() {
   noteDB.push(formJson);
 }
 
-function createTable() {
-  newTable = document.createElement('table');
-  newTable.style.width = '100px';
-  newTable.style.border = '1px solid black';
-
-  document.body.appendChild(newTable);
-  let formKeys = Object.keys(noteDB[0]);
-  formKeys.forEach(element => {
-    let row = newTable.insertRow();
-    console.log(element);
-  });
-}
-
 function updateTable() {
   let newTable = document.getElementById('note-table');
-  if (newTable !== undefined) {
-    createTable();
-  }
+  let row = newTable.insertRow();
+
+  let lastEntry = noteDB[noteDB.length - 1];
+  let cell = row.insertCell();
+  cell.innerHTML = lastEntry['todo'];
+  cell = row.insertCell();
+  cell.innerHTML = lastEntry['deadline'];
+  cell = row.insertCell();
+  cell.innerHTML = lastEntry['description'];
 }
 
 form.addEventListener('submit', function(event) {
