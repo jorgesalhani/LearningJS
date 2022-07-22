@@ -1,3 +1,10 @@
+body {
+  font-family: 'Roboto', sans-serif;   /* Add 'Roboto' here */
+  line-height: 1.8em;
+  color: #0000009e;
+  font-weight: 200;
+}
+
 table, th, td {
   border: 1px solid;
 }
@@ -6,8 +13,13 @@ th, td {
   padding: 5px;
 }
 
-input:invalid {
-  border: 2px solid red;
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
 }
 
 input:valid {
@@ -18,4 +30,21 @@ input[type='submit']:valid {
   border: unset;
   border: 1px solid gray;
   border-radius: 3px;
+}
+
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }

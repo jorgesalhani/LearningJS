@@ -36,6 +36,41 @@ function setBuiltInValidation() {
 
 setBuiltInValidation();
 
+function setCustomValidation() {
+  let noteInput = document.querySelector('#note-form');
+  for (let i = 0; i < noteInput.length-1; i++) {
+    noteInput[i].required = true;
+  }
+
+  noteInput.querySelector('#deadline').addEventListener('input', () => {
+    if (!noteInput.querySelector('#deadline').validity.valid) {
+      noteInput.querySelector('#deadline').oninvalid = function(invalidEvent) {
+        invalidEvent.target.setCustomValidity('Formato inválido!\nEsperado: dd/mm/aaaa');
+      }
+      if (!noteInput.querySelector('#deadline').validity.patternMismatch)  
+        noteInput.querySelector('#deadline').oninvalid = function(validEvent) {
+          validEvent.target.setCustomValidity('');
+      }
+    }
+  });
+
+  noteInput.querySelector('#todo').addEventListener('input', () => {
+    if (!noteInput.querySelector('#todo').validity.valid) {
+      noteInput.querySelector('#todo').oninvalid = function(invalidEvent) {
+        invalidEvent.target.setCustomValidity('Formato inválido!\nEsperado: máximo 20 caracteres')
+      }
+      if (!noteInput.querySelector('#todo').validity.patternMismatch) {
+        noteInput.querySelector('#todo').oninvalid = (validEvent) => {
+          validEvent.target.setCustomValidity('');
+        }
+      }
+    }
+  })
+}
+
+setCustomValidation();
+
+
 form.addEventListener('submit', function(event) {
   event.preventDefault();
   sendData();
