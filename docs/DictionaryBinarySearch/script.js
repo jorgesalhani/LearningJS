@@ -27,7 +27,7 @@ async function searchDefinition() {
 async function getPageContent(wikiResponseJSON) {
   let pagesObject = wikiResponseJSON.query.pages;
   let firstTitle = Object.values(pagesObject)[0]['title']
-  let url = new URL(`http://pt.wikipedia.org/w/api.php?action=parse&origin=*&prop=text&page=${firstTitle}&format=json`)
+  let url = new URL(`https://pt.wikipedia.org/w/api.php?action=parse&origin=*&prop=text&page=${firstTitle}&format=json`)
   let respJSON = {};
   const resp = await fetch(url, {
     methdo: 'GET',
