@@ -5,7 +5,7 @@ let form = document.querySelector('form');
 async function searchDefinition() {
   let word = form.querySelector('#word').value;
   // Using API from URL: https://api.dicionario-aberto.net/index.html
-  let url = new URL(`https://api.dicionario-aberto.net/word/${word}`);
+  let url = new URL(`https://en.wikipedia.org`);
   xhr.open('GET', url, true);
   xhr.send();
   let resp = new Map();
